@@ -10,7 +10,7 @@
 ## Installation
 
 ```sh
-$ npm install --save firebase gatsby-theme-firebase
+$ npm install --save gatsby-theme-firebase
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ module.exports = {
     {
       resolve: "gatsby-theme-firebase",
       options: {
-        config: {
+        credentials: {
           apiKey: process.env.FIREBASE_API_KEY,
           authDomain: process.env.FIREBASE_AUTH_DOMAIN,
           databaseURL: process.env.FIREBASE_DATABASE_URL,
