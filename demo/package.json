@@ -1,0 +1,24 @@
+{
+  "name": "demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Demo for gatsby-theme-minimal",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
+    "gatsby": "^2.13.25",
+    "gatsby-plugin-emotion": "^4.1.2",
+    "gatsby-plugin-typescript": "^2.1.2",
+    "gatsby-theme-minimal": "*",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "author": "Emmanuel Pilande",
+  "license": "MIT"
+}

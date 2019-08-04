@@ -1,0 +1,37 @@
+{
+  "name": "gatsby-theme-minimal",
+  "version": "1.0.0",
+  "description": "A minimal Gatsby Theme",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {},
+  "peerDependencies": {
+    "gatsby": "^2.13.25",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "gatsby": "^2.13.25",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "gatsby-plugin-typescript": "^2.1.2"
+  },
+  "author": "Emmanuel Pilande",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epilande/gatsby-theme-minimal.git",
+    "directory": "gatsby-theme-minimal"
+  },
+  "bugs": {
+    "url": "https://github.com/epilande/gatsby-theme-minimal/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react"
+  ]
+}
