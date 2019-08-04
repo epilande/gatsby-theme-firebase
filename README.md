@@ -1,1 +1,1 @@
-gatsby-theme-minimal/README.md
+gatsby-theme-firebase/README.md
