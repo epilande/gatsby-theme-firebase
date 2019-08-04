@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-theme-minimal",
+  "name": "gatsby-theme-firebase",
   "version": "1.0.0",
-  "description": "A minimal Gatsby Theme",
+  "description": "A Gatsby Theme for adding firebase to your application.",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {},
@@ -22,16 +22,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/epilande/gatsby-theme-minimal.git",
-    "directory": "gatsby-theme-minimal"
+    "url": "https://github.com/epilande/gatsby-theme-firebase.git",
+    "directory": "gatsby-theme-firebase"
   },
   "bugs": {
-    "url": "https://github.com/epilande/gatsby-theme-minimal/issues"
+    "url": "https://github.com/epilande/gatsby-theme-firebase/issues"
   },
   "keywords": [
     "gatsby",
     "gatsby-theme",
     "gatsby-plugin",
-    "react"
+    "react",
+    "firebase",
+    "authentication"
   ]
 }

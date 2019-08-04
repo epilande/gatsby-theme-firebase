@@ -1,10 +1,8 @@
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme-minimal",
-      options: {
-        basePath: "/minimal",
-      },
+      resolve: "gatsby-theme-firebase",
+      options: {},
     },
     "gatsby-plugin-typescript",
     "gatsby-plugin-emotion",

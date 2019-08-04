@@ -2,13 +2,13 @@
   "private": true,
   "workspaces": [
     "demo",
-    "gatsby-theme-minimal"
+    "gatsby-theme-firebase"
   ],
   "scripts": {
     "dev": "yarn workspace demo dev",
     "build": "yarn workspace demo build",
     "format": "pretty-quick",
-    "lint": "eslint --ext .tsx,.ts gatsby-theme-minimal demo"
+    "lint": "eslint --ext .tsx,.ts gatsby-theme-firebase demo"
   },
   "devDependencies": {
     "@types/node": "^12.6.8",

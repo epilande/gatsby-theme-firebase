@@ -8,7 +8,6 @@ const HomePage = () => {
       <h1>
         <pre>Hello, Demo Site</pre>
       </h1>
-      <Link to="/minimal">Theme Page</Link>
     </Layout>
   );
 };
