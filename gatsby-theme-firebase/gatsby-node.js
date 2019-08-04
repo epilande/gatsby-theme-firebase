@@ -8,7 +8,7 @@ const checkRequiredCreds = creds => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ plugins, actions }, options) => {
+exports.onCreateWebpackConfig = ({ plugins, actions }, themeOptions) => {
   const {
     credentials: {
       apiKey,
@@ -19,9 +19,9 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, options) => {
       messagingSenderId,
       appId,
     },
-  } = options;
+  } = themeOptions;
 
-  checkRequiredCreds({ ...options.credentials });
+  checkRequiredCreds({ ...themeOptions.credentials });
 
   actions.setWebpackConfig({
     plugins: [
@@ -37,5 +37,19 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, options) => {
         },
       }),
     ],
+  });
+};
+
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions;
+
+  createPage({
+    path: "/login",
+    component: path.resolve(`${__dirname}/src/pages/login.tsx`),
+  });
+
+  createPage({
+    path: "/sign-up",
+    component: path.resolve(`${__dirname}/src/pages/sign-up.tsx`),
   });
 };
