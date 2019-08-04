@@ -16,6 +16,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
+    "firebase": "^6.3.4",
     "gatsby-plugin-typescript": "^2.1.2"
   },
   "author": "Emmanuel Pilande",
