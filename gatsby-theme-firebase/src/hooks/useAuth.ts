@@ -8,7 +8,8 @@ const useAuth = () => {
   const [profile, setProfile] = React.useState<firebase.User | null>(null);
 
   React.useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    // Listen for auth state changes
+    const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setProfile(user);
         setIsLoggedIn(true);
@@ -19,6 +20,11 @@ const useAuth = () => {
 
       setIsLoading(false);
     });
+
+    // Unsubscribe to the listener when unmounting
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return {
