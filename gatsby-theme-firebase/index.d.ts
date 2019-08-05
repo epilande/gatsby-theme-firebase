@@ -1,3 +1,9 @@
+declare module "react" {
+  interface DOMAttributes<T> {
+    css?: InterpolationWithTheme<any>;
+  }
+}
+
 export { default as firebase, auth, firestore } from "./src/firebase";
 export {
   githubProvider,
