@@ -17,7 +17,7 @@ const HomePage = () => {
       </h1>
       {isLoggedIn ? (
         <React.Fragment>
-          <p>Hi {profile.displayName}</p>
+          <p>Hi {profile && profile.email}</p>
           <button
             onClick={() => {
               auth.signOut();

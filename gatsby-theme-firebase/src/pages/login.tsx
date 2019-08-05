@@ -14,12 +14,11 @@ const LoginPage = () => {
       <form
         onSubmit={async event => {
           event.preventDefault();
-          console.log({ email, password });
           try {
             await auth.signInWithEmailAndPassword(email, password);
             navigate("/");
           } catch (error) {
-            console.log("error.message", error.message);
+            console.log("Error: ", error.message);
           }
         }}
       >

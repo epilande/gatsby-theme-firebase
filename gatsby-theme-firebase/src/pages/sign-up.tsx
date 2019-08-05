@@ -15,7 +15,6 @@ const SignUpPage = () => {
       <form
         onSubmit={async event => {
           event.preventDefault();
-          console.log({ name, email, password });
           try {
             const { user } = await auth.createUserWithEmailAndPassword(
               email,
@@ -26,7 +25,7 @@ const SignUpPage = () => {
             }
             navigate("/");
           } catch (error) {
-            console.log("error.message", error.message);
+            console.log("Error: ", error.message);
           }
         }}
       >
