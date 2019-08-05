@@ -21,7 +21,8 @@ const SignUpPage = () => {
               password,
             );
             if (user) {
-              user.updateProfile({ displayName: name });
+              await user.updateProfile({ displayName: name });
+              await user.sendEmailVerification();
             }
             navigate("/");
           } catch (error) {
