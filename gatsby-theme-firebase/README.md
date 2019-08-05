@@ -36,3 +36,27 @@ module.exports = {
   ],
 };
 ```
+
+## Theme options
+
+| Key           | Default | Required | Description                    |
+| ------------- | ------- | -------- | ------------------------------ |
+| `credentials` |         | `true`   | Configure Firebase credentials |
+
+## Available Scripts
+
+#### `$ yarn dev`
+
+This will run the demo app in development mode.
+
+Navigate to [http://localhost:8000](http://localhost:8000) to view it in the browser.
+
+#### `$ yarn build`
+
+This will build the demo app for production.
+
+Outputs to the `demo/public` folder.
+
+## Related
+
+- [gatsby-theme-auth0](https://github.com/epilande/gatsby-theme-auth0) - Gatsby theme for adding Auth0.
