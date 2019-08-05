@@ -6,12 +6,14 @@ const SignUpPage = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   return (
     <div>
       <h1>
         <pre>Sign Up</pre>
       </h1>
+      {errorMessage && <p>{errorMessage}</p>}
       <form
         onSubmit={async event => {
           event.preventDefault();
@@ -26,7 +28,7 @@ const SignUpPage = () => {
             }
             navigate("/");
           } catch (error) {
-            console.log("Error: ", error.message);
+            setErrorMessage(error.message);
           }
         }}
       >

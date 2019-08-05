@@ -5,12 +5,14 @@ import { auth } from "../firebase";
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   return (
     <div>
       <h1>
         <pre>Login</pre>
       </h1>
+      {errorMessage && <p>{errorMessage}</p>}
       <form
         onSubmit={async event => {
           event.preventDefault();
@@ -18,7 +20,7 @@ const LoginPage = () => {
             await auth.signInWithEmailAndPassword(email, password);
             navigate("/");
           } catch (error) {
-            console.log("Error: ", error.message);
+            setErrorMessage(error.message);
           }
         }}
       >
