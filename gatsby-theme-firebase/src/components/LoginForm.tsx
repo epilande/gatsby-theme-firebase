@@ -8,17 +8,21 @@ import Form from "./FormBase";
 import Input from "./Input";
 import Button from "./Button";
 
-const LoginForm = () => {
+const LoginForm: React.FunctionComponent<{
+  onSuccess?: () => void;
+}> = ({ onSuccess = () => {}, ...restProps }) => {
   const { setFormType, setErrorMessage } = FormState.useContainer();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   return (
     <Form
+      {...restProps}
       onSubmit={async event => {
         event.preventDefault();
         try {
           await auth.signInWithEmailAndPassword(email, password);
+          onSuccess();
           navigate("/");
         } catch (error) {
           setErrorMessage(error.message);

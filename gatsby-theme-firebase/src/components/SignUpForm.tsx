@@ -8,7 +8,9 @@ import Form from "./FormBase";
 import Input from "./Input";
 import Button from "./Button";
 
-const SignUpForm = () => {
+const SignUpForm: React.FunctionComponent<{
+  onSuccess?: () => void;
+}> = ({ onSuccess = () => {}, ...restProps }) => {
   const { setErrorMessage } = FormState.useContainer();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -16,6 +18,7 @@ const SignUpForm = () => {
 
   return (
     <Form
+      {...restProps}
       onSubmit={async event => {
         event.preventDefault();
         try {
@@ -27,6 +30,7 @@ const SignUpForm = () => {
             await user.updateProfile({ displayName: name });
             await user.sendEmailVerification();
           }
+          onSuccess();
           navigate("/");
         } catch (error) {
           setErrorMessage(error.message);

@@ -15,7 +15,9 @@ export const Forms = {
   passwordReset: PasswordResetForm,
 };
 
-const Form: React.FunctionComponent<{}> = () => {
+const Form: React.FunctionComponent<{
+  onSuccess?: () => void;
+}> = ({ onSuccess }) => {
   const { formType, errorMessage } = FormState.useContainer();
   const FormPresenter = Forms[formType];
 
@@ -33,7 +35,7 @@ const Form: React.FunctionComponent<{}> = () => {
       </Header>
       <Nav />
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      <FormPresenter />
+      <FormPresenter onSuccess={onSuccess} />
     </div>
   );
 };
