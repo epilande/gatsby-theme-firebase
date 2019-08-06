@@ -47,9 +47,4 @@ exports.createPages = ({ actions }) => {
     path: "/login",
     component: path.resolve(`${__dirname}/src/pages/login.tsx`),
   });
-
-  createPage({
-    path: "/sign-up",
-    component: path.resolve(`${__dirname}/src/pages/sign-up.tsx`),
-  });
 };
