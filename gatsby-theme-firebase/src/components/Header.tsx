@@ -7,7 +7,7 @@ const Header: React.FunctionComponent<{}> = ({ ...restProps }) => {
     <div
       sx={{
         m: 0,
-        p: 2,
+        p: 3,
         bg: "white",
         color: "primary",
         border: 0,
