@@ -8,6 +8,7 @@ const colors = {
   yellow: "#FFDD57",
   red: "#FF3860",
   white: "#FFF",
+  border: "#AAA",
 };
 
 const fonts = {

@@ -6,6 +6,7 @@ import Header from "./Header";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import PasswordResetForm from "./PasswordResetForm";
+import Nav from "./Nav";
 import ErrorMessage from "./ErrorMessage";
 
 export const Forms = {
@@ -15,7 +16,7 @@ export const Forms = {
 };
 
 const Form: React.FunctionComponent<{}> = () => {
-  const { formType, setFormType, errorMessage } = FormState.useContainer();
+  const { formType, errorMessage } = FormState.useContainer();
   const FormPresenter = Forms[formType];
 
   return (
@@ -31,22 +32,7 @@ const Form: React.FunctionComponent<{}> = () => {
         <Header css={{ textAlign: "center" }}>
           <h1 sx={{ my: 1 }}>gatsby-theme-firebase</h1>
         </Header>
-        <div>
-          <button
-            onClick={() => {
-              setFormType("login");
-            }}
-          >
-            Login
-          </button>
-          <button
-            onClick={() => {
-              setFormType("signup");
-            }}
-          >
-            Sign up
-          </button>
-        </div>
+        <Nav />
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <FormPresenter />
       </div>

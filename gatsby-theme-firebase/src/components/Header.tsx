@@ -11,7 +11,6 @@ const Header: React.FunctionComponent<{}> = ({ ...restProps }) => {
         bg: "white",
         color: "primary",
         border: 0,
-        borderBottom: "1px solid #DFDFDF",
       }}
       {...restProps}
     />
