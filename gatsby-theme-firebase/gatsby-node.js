@@ -40,11 +40,14 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, themeOptions) => {
   });
 };
 
-exports.createPages = ({ actions }) => {
+exports.createPages = ({ actions }, themeOptions) => {
   const { createPage } = actions;
+  const { loginPath } = themeOptions;
 
-  createPage({
-    path: "/login",
-    component: path.resolve(`${__dirname}/src/pages/login.tsx`),
-  });
+  if (loginPath) {
+    createPage({
+      path: loginPath,
+      component: path.resolve(`${__dirname}/src/pages/login.tsx`),
+    });
+  }
 };
