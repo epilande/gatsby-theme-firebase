@@ -20,22 +20,20 @@ const Form: React.FunctionComponent<{}> = () => {
   const FormPresenter = Forms[formType];
 
   return (
-    <div>
-      <div
-        sx={{
-          width: "100%",
-          maxWidth: "28rem",
-          margin: "0 auto",
-          boxShadow: "0 0 1.5rem 0 rgba(0,0,0,0.25)",
-        }}
-      >
-        <Header css={{ textAlign: "center" }}>
-          <h1 sx={{ my: 1 }}>gatsby-theme-firebase</h1>
-        </Header>
-        <Nav />
-        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-        <FormPresenter />
-      </div>
+    <div
+      sx={{
+        width: "100%",
+        maxWidth: "28rem",
+        margin: "0 auto",
+        boxShadow: "0 0 1.5rem 0 rgba(0,0,0,0.25)",
+      }}
+    >
+      <Header css={{ textAlign: "center" }}>
+        <h1 sx={{ my: 1 }}>gatsby-theme-firebase</h1>
+      </Header>
+      <Nav />
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      <FormPresenter />
     </div>
   );
 };

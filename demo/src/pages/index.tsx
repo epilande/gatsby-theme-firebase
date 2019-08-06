@@ -1,7 +1,9 @@
-import * as React from "react";
+/** @jsx jsx */
+import { jsx, ThemeProvider } from "theme-ui";
 import { Link } from "gatsby";
-import { auth, useAuth } from "gatsby-theme-firebase";
-import { Layout } from "../components";
+import { auth, useAuth, theme } from "gatsby-theme-firebase";
+import Button from "gatsby-theme-firebase/src/components/Button";
+import { Layout, DisplayState } from "../components";
 
 const HomePage = () => {
   const { isLoading, isLoggedIn, profile } = useAuth();
@@ -11,27 +13,25 @@ const HomePage = () => {
   }
 
   return (
-    <Layout>
-      <h1>
-        <pre>Hello, Demo Site</pre>
-      </h1>
-      {isLoggedIn ? (
-        <React.Fragment>
-          <p>Hi {profile && profile.email}</p>
-          <button
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <h1 sx={{ mt: 2 }}>Hello, Demo Site</h1>
+
+        <DisplayState props={profile} />
+
+        {isLoggedIn ? (
+          <Button
             onClick={() => {
               auth.signOut();
             }}
           >
             Sign Out
-          </button>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Link to="/login">Login</Link> <Link to="/sign-up">Sign Up</Link>
-        </React.Fragment>
-      )}
-    </Layout>
+          </Button>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
+      </Layout>
+    </ThemeProvider>
   );
 };
 
