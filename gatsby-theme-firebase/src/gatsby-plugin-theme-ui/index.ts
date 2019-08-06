@@ -8,7 +8,7 @@ const colors = {
   yellow: "#FFDD57",
   red: "#FF3860",
   white: "#FFF",
-  border: "#AAA",
+  border: "#BBB",
 };
 
 const fonts = {
@@ -48,6 +48,12 @@ const styles = {
     ":hover": {
       textDecoration: "underline",
     },
+  },
+  hr: {
+    color: "border",
+    my: 2,
+    border: 0,
+    borderBottom: "1px solid",
   },
 };
 

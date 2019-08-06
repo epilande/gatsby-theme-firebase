@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import * as React from "react";
 import { navigate } from "gatsby";
 import FormState from "../containers/FormState";
@@ -47,18 +47,24 @@ const LoginForm = () => {
         Log in
       </Button>
 
-      <hr />
+      <Styled.hr />
 
-      <div>
-        <button
-          onClick={event => {
-            event.preventDefault();
-            setFormType("passwordReset");
-          }}
-        >
-          Forgot your password?
-        </button>
-      </div>
+      <Button
+        sx={{
+          width: "100%",
+          bg: "white",
+          color: "primary",
+          p: 0,
+          fontSize: 0,
+          fontWeight: "body",
+        }}
+        onClick={event => {
+          event.preventDefault();
+          setFormType("passwordReset");
+        }}
+      >
+        Forgot your password?
+      </Button>
     </Form>
   );
 };
