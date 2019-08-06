@@ -34,28 +34,28 @@ const SignUpForm = () => {
       }}
     >
       <Input
-        label="Name: "
+        label="Name"
         type="text"
-        placeholder="Name"
+        placeholder="John Doe"
         value={name}
         onChange={event => {
           setName(event.target.value);
         }}
       />
       <Input
-        label="Email: "
+        label="Email"
         type="text"
-        placeholder="Email"
+        placeholder="email@example.com"
         value={email}
         onChange={event => {
           setEmail(event.target.value);
         }}
       />
       <Input
-        label="Password: "
+        label="Password"
         type="password"
-        placeholder="Password"
         value={password}
+        sx={{ mb: 3 }}
         onChange={event => {
           setPassword(event.target.value);
         }}

@@ -15,7 +15,11 @@ const Input: React.FunctionComponent<Props> = ({ label, sx, ...restProps }) => {
   };
   return (
     <label css={{ display: "block" }}>
-      <p sx={{ mt: 0, mb: 1 }}>{label}</p>
+      <p
+        sx={{ mt: 0, mb: 1, fontSize: 0, fontWeight: "medium", color: "text" }}
+      >
+        {label}
+      </p>
       <input sx={defaultInputStyles} {...restProps} />
     </label>
   );

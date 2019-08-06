@@ -26,24 +26,24 @@ const LoginForm = () => {
       }}
     >
       <Input
-        label="Email: "
+        label="Email"
         type="text"
-        placeholder="Email"
+        placeholder="email@example.com"
         value={email}
         onChange={event => {
           setEmail(event.target.value);
         }}
       />
       <Input
-        label="Password: "
+        label="Password"
         type="password"
-        placeholder="Password"
         value={password}
+        sx={{ mb: 3 }}
         onChange={event => {
           setPassword(event.target.value);
         }}
       />
-      <Button type="submit" css={{ width: "100%" }}>
+      <Button type="submit" sx={{ width: "100%", mb: 1 }}>
         Log in
       </Button>
 

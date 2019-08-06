@@ -25,10 +25,11 @@ const PasswordResetForm = () => {
       }}
     >
       <Input
-        label="Email: "
+        label="Email"
         type="text"
-        placeholder="Email"
+        placeholder="email@example.com"
         value={email}
+        sx={{ mb: 3 }}
         onChange={event => {
           setEmail(event.target.value);
         }}
