@@ -1,3 +1,7 @@
 module.exports = () => ({
-  plugins: ["gatsby-plugin-theme-ui", "gatsby-plugin-typescript"],
+  plugins: [
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-theme-ui",
+  ],
 });
