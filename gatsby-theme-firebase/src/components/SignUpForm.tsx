@@ -1,8 +1,12 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import * as React from "react";
 import { navigate } from "gatsby";
 import { auth } from "../firebase";
 import Form from "./Form";
 import Input from "./Input";
+import Button from "./Button";
+import ErrorMessage from "./ErrorMessage";
 
 const SignUpForm = () => {
   const [name, setName] = React.useState("");
@@ -12,7 +16,7 @@ const SignUpForm = () => {
 
   return (
     <div>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <Form
         onSubmit={async event => {
           event.preventDefault();
@@ -34,7 +38,7 @@ const SignUpForm = () => {
         <Input
           label="Name: "
           type="text"
-          placeholder="name"
+          placeholder="Name"
           value={name}
           onChange={event => {
             setName(event.target.value);
@@ -43,7 +47,7 @@ const SignUpForm = () => {
         <Input
           label="Email: "
           type="text"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={event => {
             setEmail(event.target.value);
@@ -52,13 +56,15 @@ const SignUpForm = () => {
         <Input
           label="Password: "
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={event => {
             setPassword(event.target.value);
           }}
         />
-        <button type="submit">Submit</button>
+        <Button type="submit" css={{ width: "100%" }}>
+          Sign up
+        </Button>
       </Form>
     </div>
   );

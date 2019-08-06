@@ -5,6 +5,8 @@ import { navigate } from "gatsby";
 import { auth } from "../firebase";
 import Form from "./Form";
 import Input from "./Input";
+import Button from "./Button";
+import ErrorMessage from "./ErrorMessage";
 
 const LoginForm = () => {
   const [email, setEmail] = React.useState("");
@@ -13,7 +15,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <Form
         onSubmit={async event => {
           event.preventDefault();
@@ -28,7 +30,7 @@ const LoginForm = () => {
         <Input
           label="Email: "
           type="text"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={event => {
             setEmail(event.target.value);
@@ -37,13 +39,15 @@ const LoginForm = () => {
         <Input
           label="Password: "
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={event => {
             setPassword(event.target.value);
           }}
         />
-        <button type="submit">Submit</button>
+        <Button type="submit" css={{ width: "100%" }}>
+          Log in
+        </Button>
       </Form>
     </div>
   );

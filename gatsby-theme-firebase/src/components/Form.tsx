@@ -4,8 +4,8 @@ import * as React from "react";
 
 const Form: React.FunctionComponent<
   React.FormHTMLAttributes<HTMLFormElement>
-> = ({ css, ...restProps }) => {
-  return <form css={css} {...restProps} />;
+> = ({ ...restProps }) => {
+  return <form sx={{ p: 3, backgroundColor: "background" }} {...restProps} />;
 };
 
 export default Form;

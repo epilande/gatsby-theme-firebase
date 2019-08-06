@@ -6,12 +6,17 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
-const Input: React.FunctionComponent<Props> = ({ label, ...restProps }) => {
+const Input: React.FunctionComponent<Props> = ({ label, sx, ...restProps }) => {
+  const defaultInputStyles = {
+    width: "100%",
+    fontSize: 1,
+    mb: 2,
+    p: 1,
+  };
   return (
     <label css={{ display: "block" }}>
-      {label}
-      <br />
-      <input {...restProps} />
+      <p sx={{ mt: 0, mb: 1 }}>{label}</p>
+      <input sx={defaultInputStyles} {...restProps} />
     </label>
   );
 };
