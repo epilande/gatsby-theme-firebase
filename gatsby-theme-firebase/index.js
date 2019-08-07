@@ -7,7 +7,8 @@ export {
 
 export { default as useAuth } from "./src/hooks/useAuth";
 
-export { default as Form } from "./src/components/Form";
 export { default as FormState } from "./src/containers/FormState";
+export { default as Form } from "./src/components/Form";
+export { default as SocialLogins } from "./src/components/SocialLogins";
 
 export { default as theme } from "./src/gatsby-plugin-theme-ui";
