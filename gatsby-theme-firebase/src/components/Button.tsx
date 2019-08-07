@@ -7,6 +7,7 @@ const Button: React.FunctionComponent<
 > = ({ ...restProps }) => {
   return (
     <button
+      type="button"
       sx={{
         appearance: "none",
         fontSize: 1,
