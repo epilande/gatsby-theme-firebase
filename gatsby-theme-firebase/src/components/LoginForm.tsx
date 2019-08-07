@@ -7,6 +7,7 @@ import { auth } from "../firebase";
 import Form from "./FormBase";
 import Input from "./Input";
 import Button from "./Button";
+import SocialLogins from "./SocialLogins";
 
 const LoginForm: React.FunctionComponent<{
   onSuccess?: () => void;
@@ -29,6 +30,9 @@ const LoginForm: React.FunctionComponent<{
         }
       }}
     >
+      <SocialLogins onSuccess={onSuccess} />
+      <Styled.hr sx={{ my: 3 }} />
+
       <Input
         label="Email"
         type="text"
