@@ -3,36 +3,73 @@ import { jsx } from "theme-ui";
 import * as React from "react";
 import { navigate } from "gatsby";
 import { auth } from "../firebase";
-import { googleProvider, githubProvider } from "../firebase/auth";
-// import SocialLoginButton from "./SocialLoginButton";
-import Button from "./Button";
+import {
+  googleProvider,
+  githubProvider,
+  twitterProvider,
+} from "../firebase/auth";
+import SocialLoginButton from "./SocialLoginButton";
+import GitHubIcon from "./icons/GitHub";
+import GoogleIcon from "./icons/Google";
+import TwitterIcon from "./icons/Twitter";
 
 const SocialLogins: React.FunctionComponent<{
   onSuccess?: () => void;
-}> = ({ onSuccess = () => {}, ...restProps }) => {
+  onError?: (err: any) => void;
+}> = ({ onSuccess = () => {}, onError = () => {}, ...restProps }) => {
   return (
-    <div sx={{ display: "flex", flexDirection: "column" }} {...restProps}>
-      <Button
-        sx={{ mb: 1 }}
+    <div
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        "button:not(:last-child)": {
+          mb: 1,
+        },
+      }}
+      {...restProps}
+    >
+      <SocialLoginButton
         onClick={async () => {
-          const user = await auth.signInWithPopup(googleProvider());
-          console.log("TCL: Google user", user);
-          onSuccess();
-          navigate("/");
+          try {
+            await auth.signInWithPopup(googleProvider());
+            onSuccess();
+            navigate("/");
+          } catch (err) {
+            console.error("Authentication Error: ", err);
+            onError(err);
+          }
         }}
       >
-        Sign in with Google
-      </Button>
-      <Button
+        <GoogleIcon sx={{ mr: 1 }} size={18} /> Sign in with Google
+      </SocialLoginButton>
+      <SocialLoginButton
         onClick={async () => {
-          const user = await auth.signInWithPopup(githubProvider());
-          console.log("TCL: Github user", user);
-          onSuccess();
-          navigate("/");
+          try {
+            await auth.signInWithPopup(twitterProvider());
+            onSuccess();
+            navigate("/");
+          } catch (err) {
+            console.error("Authentication Error: ", err);
+            onError(err);
+          }
         }}
       >
-        Sign in with Github
-      </Button>
+        <TwitterIcon sx={{ mr: 1 }} size={18} /> Sign in with Twitter
+      </SocialLoginButton>
+      <SocialLoginButton
+        onClick={async () => {
+          try {
+            await auth.signInWithPopup(githubProvider());
+            onSuccess();
+            navigate("/");
+          } catch (err) {
+            console.error("Authentication Error: ", err);
+            onError(err);
+          }
+        }}
+      >
+        <GitHubIcon sx={{ mr: 1 }} size={18} /> Sign in with Github
+      </SocialLoginButton>
     </div>
   );
 };
