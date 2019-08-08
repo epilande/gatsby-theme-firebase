@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 interface Query {
   firebaseConfig: {
     loginPath: string | null;
+    loginRedirectPath: string;
     socialLogins: string[];
   };
 }
@@ -13,6 +14,7 @@ const useFirebaseConfig = () => {
       query {
         firebaseConfig(id: { eq: "gatsby-theme-firebase-config" }) {
           loginPath
+          loginRedirectPath
           socialLogins
         }
       }

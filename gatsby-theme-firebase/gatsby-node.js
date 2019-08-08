@@ -55,13 +55,18 @@ exports.createPages = ({ actions }, themeOptions) => {
 
 exports.sourceNodes = ({ actions, schema }, themeOptions) => {
   const { createTypes, createNode } = actions;
-  const { loginPath, socialLogins = [] } = themeOptions;
+  const {
+    loginPath,
+    loginRedirectPath = "/",
+    socialLogins = [],
+  } = themeOptions;
 
   createTypes(
     schema.buildObjectType({
       name: "FirebaseConfig",
       fields: {
         loginPath: { type: "String" },
+        loginRedirectPath: { type: "String" },
         socialLogins: { type: "[String]" },
       },
       interfaces: ["Node"],
@@ -70,6 +75,7 @@ exports.sourceNodes = ({ actions, schema }, themeOptions) => {
 
   const firebaseConfig = {
     loginPath,
+    loginRedirectPath,
     socialLogins,
   };
 
