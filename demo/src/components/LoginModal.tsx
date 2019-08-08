@@ -27,6 +27,8 @@ const LoginModal: React.FunctionComponent<{
         transform: "translate(-50%, -50%)",
         maxWidth: "28rem",
         width: "100%",
+        maxHeight: "100vh",
+        overflow: "auto",
       }}
     >
       <FormState.Provider>

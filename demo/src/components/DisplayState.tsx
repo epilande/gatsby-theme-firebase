@@ -26,8 +26,8 @@ const DisplayState: React.FunctionComponent<{ props: any }> = ({ props }) => (
     <pre
       sx={{
         backgroundColor: "muted",
-        fontSize: 0,
-        padding: 1,
+        fontSize: 1,
+        padding: 2,
         overflowX: "auto",
       }}
     >
