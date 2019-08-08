@@ -2,6 +2,7 @@
 import { jsx, Styled } from "theme-ui";
 import * as React from "react";
 import { navigate } from "gatsby";
+import useFirebaseConfig from "../hooks/useFirebaseConfig";
 import FormState from "../containers/FormState";
 import { auth } from "../firebase";
 import Form from "./FormBase";
@@ -12,6 +13,7 @@ import SocialLogins from "./SocialLogins";
 const LoginForm: React.FunctionComponent<{
   onSuccess?: () => void;
 }> = ({ onSuccess = () => {}, ...restProps }) => {
+  const { socialLogins } = useFirebaseConfig();
   const { setFormType, setErrorMessage } = FormState.useContainer();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -30,8 +32,12 @@ const LoginForm: React.FunctionComponent<{
         }
       }}
     >
-      <SocialLogins onSuccess={onSuccess} />
-      <Styled.hr sx={{ my: 3 }} />
+      {socialLogins.length > 0 && (
+        <div>
+          <SocialLogins onSuccess={onSuccess} />
+          <Styled.hr sx={{ my: 3 }} />
+        </div>
+      )}
 
       <Input
         label="Email"
