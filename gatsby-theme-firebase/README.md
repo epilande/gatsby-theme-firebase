@@ -11,6 +11,16 @@
 [![npm](https://img.shields.io/npm/v/gatsby-theme-firebase?style=flat-square)](https://www.npmjs.com/package/gatsby-theme-firebase)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/02fddd63-758b-4e37-9af9-fdc0bc45c5d7/deploy-status)](https://app.netlify.com/sites/gatsby-theme-firebase/deploys)
 
+## What's in the box?
+
+- 🔥 Firebase configured and ready to go!
+- 💯 Easy to set up authentication + social logins.
+- 🔋 Batteries included: [`useAuth`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/hooks/useAuth.ts), [`<Form />`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/Form.tsx), [`<FormState />`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/FormState.tsx), & [`<SocialLogins />`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/SocialLogins.tsx).
+- 🔐 [`/login`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/pages/login.tsx) page automatically set up. Configurable via [`loginPath`](#theme-options).
+- 🎨 Fully customizable & extendable.
+
+**[DEMO](https://gatsby-theme-firebase.netlify.com/)**
+
 ## Installation
 
 ```sh
@@ -36,6 +46,7 @@ module.exports = {
           appId: process.env.FIREBASE_APP_ID,
         },
         loginPath: "/login",
+        loginRedirectPath: "/dashboard",
         socialLogins: ["google", "twitter", "github"],
       },
     },
@@ -45,17 +56,18 @@ module.exports = {
 
 ## Theme options
 
-| Key            | Default     | Required | Description                                                                    |
-| -------------- | ----------- | -------- | ------------------------------------------------------------------------------ |
-| `credentials`  | `undefined` | `true`   | Configure Firebase credentials.                                                |
-| `loginPath`    | `undefined` | `false`  | Set login page path. If `undefined`, no login page will be created.            |
-| `socialLogins` | `[]`        | `false`  | Enable social logins in the login form. e.g. `['google', 'twitter', 'github']` |
+| Key                 | Default     | Required | Description                                                                    |
+| ------------------- | ----------- | -------- | ------------------------------------------------------------------------------ |
+| `credentials`       | `undefined` | `true`   | Configure Firebase credentials.                                                |
+| `loginPath`         | `undefined` | `false`  | Set login page path. If `undefined`, no login page will be created.            |
+| `loginRedirectPath` | `/`         | `false`  | On successful login, redirect to this path.                                    |
+| `socialLogins`      | `[]`        | `false`  | Enable social logins in the login form. e.g. `['google', 'twitter', 'github']` |
 
 ## Just want the login form?
 
 Don't like the login page layout?
 
-No problem! Just use the `<FormState.Provider />` and `<Form />` component and embed it in any page/layout.
+No problem! Don't set the `loginPath` theme option (this will prevent the page from being created). Then use the `<FormState.Provider />` and `<Form />` component and embed it in any page/layout.
 
 ```jsx
 import { Form, FormState } from "gatsby-theme-firebase";
@@ -70,7 +82,25 @@ const CustomLogin = () => (
 );
 ```
 
-To see an example, check out the login modal demo: [`demo/src/components/LoginModal.tsx`](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/components/LoginModal.tsx)
+To see an example, check out the login modal demo: [`demo/src/components/LoginModal.tsx`](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/components/LoginModal.tsx) | [demo site](https://gatsby-theme-firebase.netlify.com/)
+
+## Just want the social login buttons?
+
+Don’t need a full login form and only need social logins?
+
+No problem! Use the `<SocialLogins />` component:
+
+```jsx
+import { SocialLogins } from "gatsby-theme-firebase";
+
+<SocialLogins
+  onSuccess={() => {
+    navigate("/");
+  }}
+/>;
+```
+
+**[View demo page](https://gatsby-theme-firebase.netlify.com/social-logins)**.
 
 ## Available Scripts
 
