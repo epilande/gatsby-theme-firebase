@@ -36,6 +36,7 @@ module.exports = {
           appId: process.env.FIREBASE_APP_ID,
         },
         loginPath: "/login",
+        socialLogins: ["google", "twitter", "github"],
       },
     },
   ],
@@ -44,10 +45,11 @@ module.exports = {
 
 ## Theme options
 
-| Key           | Default     | Required | Description                                                         |
-| ------------- | ----------- | -------- | ------------------------------------------------------------------- |
-| `credentials` |             | `true`   | Configure Firebase credentials                                      |
-| `loginPath`   | `undefined` | `false`  | Set login page path. If `undefined`, no login page will be created. |
+| Key            | Default     | Required | Description                                                                    |
+| -------------- | ----------- | -------- | ------------------------------------------------------------------------------ |
+| `credentials`  | `undefined` | `true`   | Configure Firebase credentials.                                                |
+| `loginPath`    | `undefined` | `false`  | Set login page path. If `undefined`, no login page will be created.            |
+| `socialLogins` | `[]`        | `false`  | Enable social logins in the login form. e.g. `['google', 'twitter', 'github']` |
 
 ## Just want the login form?
 
