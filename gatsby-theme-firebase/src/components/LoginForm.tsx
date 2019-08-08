@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import * as React from "react";
-import { navigate } from "gatsby";
 import useFirebaseConfig from "../hooks/useFirebaseConfig";
 import FormState from "../containers/FormState";
 import { auth } from "../firebase";
@@ -26,7 +25,6 @@ const LoginForm: React.FunctionComponent<{
         try {
           await auth.signInWithEmailAndPassword(email, password);
           onSuccess();
-          navigate("/");
         } catch (error) {
           setErrorMessage(error.message);
         }

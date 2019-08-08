@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import * as React from "react";
-import { navigate } from "gatsby";
 import useFirebaseConfig from "../hooks/useFirebaseConfig";
 import { auth } from "../firebase";
 import {
@@ -40,7 +39,6 @@ const SocialLogins: React.FunctionComponent<{
             try {
               await auth.signInWithPopup(googleProvider());
               onSuccess();
-              navigate("/");
             } catch (err) {
               console.error("Authentication Error: ", err);
               onError(err);
@@ -56,7 +54,6 @@ const SocialLogins: React.FunctionComponent<{
             try {
               await auth.signInWithPopup(twitterProvider());
               onSuccess();
-              navigate("/");
             } catch (err) {
               console.error("Authentication Error: ", err);
               onError(err);
@@ -72,7 +69,6 @@ const SocialLogins: React.FunctionComponent<{
             try {
               await auth.signInWithPopup(githubProvider());
               onSuccess();
-              navigate("/");
             } catch (err) {
               console.error("Authentication Error: ", err);
               onError(err);

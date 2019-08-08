@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import * as React from "react";
-import { navigate } from "gatsby";
 import FormState from "../containers/FormState";
 import { auth } from "../firebase";
 import Form from "./FormBase";
@@ -22,7 +21,6 @@ const PasswordResetForm: React.FunctionComponent<{
         try {
           await auth.sendPasswordResetEmail(email);
           onSuccess();
-          navigate("/");
         } catch (error) {
           setErrorMessage(error.message);
         }

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import * as React from "react";
-import { navigate } from "gatsby";
 import FormState from "../containers/FormState";
 import { auth } from "../firebase";
 import Form from "./FormBase";
@@ -31,7 +30,6 @@ const SignUpForm: React.FunctionComponent<{
             await user.sendEmailVerification();
           }
           onSuccess();
-          navigate("/");
         } catch (error) {
           setErrorMessage(error.message);
         }
