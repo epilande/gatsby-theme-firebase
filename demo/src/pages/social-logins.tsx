@@ -94,6 +94,7 @@ const SocialLoginsPage = () => {
             backgroundColor: "muted",
             fontSize: 1,
             padding: 2,
+            overflow: "auto",
           }}
         >
           {`import { SocialLogins } from "gatsby-theme-firebase";

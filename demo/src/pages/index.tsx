@@ -50,22 +50,43 @@ const HomePage = () => {
 
       <DisplayState props={profile} />
 
-      <Button
-        sx={{ mr: 3 }}
-        onClick={() => {
-          setToggleLogin(true);
+      <div
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
         }}
       >
-        Login Modal
-      </Button>
+        <Button
+          sx={{
+            mr: 3,
+            mb: 3,
+          }}
+          onClick={() => {
+            setToggleLogin(true);
+          }}
+        >
+          Login Modal
+        </Button>
 
-      <Link sx={{ mr: 3 }} to="/login">
-        <Button>Login Page</Button>
-      </Link>
+        <Link
+          to="/login"
+          sx={{
+            mr: 3,
+            mb: 3,
+          }}
+        >
+          <Button>Login Page</Button>
+        </Link>
 
-      <Link to="/social-logins">
-        <Button>Social Logins</Button>
-      </Link>
+        <Link
+          to="/social-logins"
+          sx={{
+            mb: 3,
+          }}
+        >
+          <Button>Social Logins</Button>
+        </Link>
+      </div>
 
       {toggleLogin && <LoginModal setToggleLogin={setToggleLogin} />}
     </Layout>
