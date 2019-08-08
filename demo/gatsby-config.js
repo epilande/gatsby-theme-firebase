@@ -26,5 +26,11 @@ module.exports = {
     },
     "gatsby-plugin-typescript",
     "gatsby-plugin-emotion",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-140749529-2",
+      },
+    },
   ],
 };
