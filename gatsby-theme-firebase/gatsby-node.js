@@ -1,4 +1,5 @@
 const path = require("path");
+const crypto = require("crypto");
 
 const checkRequiredCreds = creds => {
   Object.entries(creds).map(([key, value]) => {
@@ -50,4 +51,41 @@ exports.createPages = ({ actions }, themeOptions) => {
       component: path.resolve(`${__dirname}/src/pages/login.tsx`),
     });
   }
+};
+
+exports.sourceNodes = ({ actions, schema }, themeOptions) => {
+  const { createTypes, createNode } = actions;
+  const { loginPath, socialLogins = [] } = themeOptions;
+
+  createTypes(
+    schema.buildObjectType({
+      name: "FirebaseConfig",
+      fields: {
+        loginPath: { type: "String" },
+        socialLogins: { type: "[String]" },
+      },
+      interfaces: ["Node"],
+    }),
+  );
+
+  const firebaseConfig = {
+    loginPath,
+    socialLogins,
+  };
+
+  createNode({
+    ...firebaseConfig,
+    id: "gatsby-theme-firebase-config",
+    parent: null,
+    children: [],
+    internal: {
+      type: "FirebaseConfig",
+      contentDigest: crypto
+        .createHash("md5")
+        .update(JSON.stringify(firebaseConfig))
+        .digest("hex"),
+      content: JSON.stringify(firebaseConfig),
+      description: "Firebase Config",
+    },
+  });
 };
