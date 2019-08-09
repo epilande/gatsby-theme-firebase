@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-firebase",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Gatsby Theme for adding firebase to your application.",
   "main": "index.js",
   "types": "index.d.ts",
