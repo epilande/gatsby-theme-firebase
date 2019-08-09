@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Link, navigate } from "gatsby";
-import { auth, useAuth, SocialLogins } from "gatsby-theme-firebase";
-import GithubIcon from "gatsby-theme-firebase/src/components/icons/GitHub";
+import { useAuth, SocialLogins } from "gatsby-theme-firebase";
 import Button from "gatsby-theme-firebase/src/components/Button";
+import { Code, CodeBlock, Header } from "../components/Styles";
 import { Layout } from "../components";
 
 const SocialLoginsPage = () => {
@@ -15,89 +15,23 @@ const SocialLoginsPage = () => {
 
   return (
     <Layout>
-      <div
-        sx={{
-          mt: 2,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          mb: 4,
-        }}
-      >
-        <h1 sx={{ fontSize: [3, 4, 5] }}>Social Login</h1>
-        <div sx={{ display: "flex", alignItems: "center" }}>
-          <a
-            href="https://github.com/epilande/gatsby-theme-firebase"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GithubIcon size={24} />
-          </a>
-          {isLoggedIn && (
-            <Button
-              sx={{ ml: 2, fontSize: 0, p: 1 }}
-              onClick={() => {
-                auth.signOut();
-              }}
-            >
-              Sign Out
-            </Button>
-          )}
-        </div>
-      </div>
+      <Header title="Social Login" isLoggedIn={isLoggedIn} />
 
-      <p sx={{ mb: 2 }}>
+      <p sx={{ mt: 3, mb: 2 }}>
         Only want the social login buttons and don{"'"}t need the login form?
       </p>
 
       <p sx={{ mb: 2 }}>
-        Use the{" "}
-        <code
-          sx={{
-            fontSize: "1rem",
-            bg: "muted",
-            padding: "0.2rem 0.4rem",
-          }}
-        >{`<SocialLogins />`}</code>{" "}
-        component:
+        Use the <Code>{`<SocialLogins />`}</Code> component:
       </p>
 
-      <div
-        sx={{
-          my: 3,
-          fontFamily: "monospace",
-        }}
+      <CodeBlock
+        link={
+          "https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/social-logins.tsx"
+        }
+        title="social-logins.tsx"
       >
-        <h3
-          sx={{
-            p: 1,
-            px: 2,
-            backgroundColor: "#000",
-            fontSize: "0.65rem",
-            fontFamily: "body",
-          }}
-        >
-          <a
-            href="https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/social-logins.tsx"
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              color: "white",
-              textDecoration: "none",
-            }}
-          >
-            social-logins.tsx
-          </a>
-        </h3>
-        <pre
-          sx={{
-            backgroundColor: "muted",
-            fontSize: 1,
-            padding: 2,
-            overflow: "auto",
-          }}
-        >
-          {`import { SocialLogins } from "gatsby-theme-firebase";
+        {`import { SocialLogins } from "gatsby-theme-firebase";
 
 ...
 
@@ -107,8 +41,7 @@ const SocialLoginsPage = () => {
   }}
 />
 `}
-        </pre>
-      </div>
+      </CodeBlock>
 
       <h2 sx={{ mb: 3 }}>Demo</h2>
 
