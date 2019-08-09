@@ -12,6 +12,8 @@ export {
 } from "./src/firebase/auth";
 
 export { default as useAuth } from "./src/hooks/useAuth";
+export { default as useFirestoreDoc } from "./src/hooks/useFirestoreDoc";
+export { default as useFirestoreQuery } from "./src/hooks/useFirestoreQuery";
 
 export { default as FormState } from "./src/containers/FormState";
 export { default as Form } from "./src/components/Form";
