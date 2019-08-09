@@ -53,10 +53,20 @@ const HomePage = () => {
         <Link
           to="/social-logins"
           sx={{
+            mr: 3,
             mb: 3,
           }}
         >
           <Button>Social Logins</Button>
+        </Link>
+
+        <Link
+          to="/firestore"
+          sx={{
+            mb: 3,
+          }}
+        >
+          <Button>Firestore Hooks</Button>
         </Link>
       </div>
 
