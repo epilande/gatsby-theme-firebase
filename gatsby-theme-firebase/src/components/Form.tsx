@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import * as React from "react";
+import useSiteMetadata from "../hooks/useSiteMetadata";
 import FormState from "../containers/FormState";
 import Header from "./Header";
 import LoginForm from "./LoginForm";
@@ -18,6 +19,7 @@ export const Forms = {
 const Form: React.FunctionComponent<{
   onSuccess?: () => void;
 }> = ({ onSuccess }) => {
+  const siteMetadata = useSiteMetadata();
   const { formType, errorMessage } = FormState.useContainer();
   const FormPresenter = Forms[formType];
 
@@ -31,7 +33,7 @@ const Form: React.FunctionComponent<{
       }}
     >
       <Header css={{ textAlign: "center" }}>
-        <h1 sx={{ my: 1 }}>gatsby-theme-firebase</h1>
+        <h1 sx={{ my: 1 }}>{siteMetadata.title}</h1>
       </Header>
       <Nav />
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
