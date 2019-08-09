@@ -11,13 +11,20 @@
 [![npm](https://img.shields.io/npm/v/gatsby-theme-firebase?style=flat-square)](https://www.npmjs.com/package/gatsby-theme-firebase)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/02fddd63-758b-4e37-9af9-fdc0bc45c5d7/deploy-status)](https://app.netlify.com/sites/gatsby-theme-firebase/deploys)
 
+## Why?
+
+You want to add Firebase to your Gatsby application. You want a login page that _"Just Works"_. You want to make life easier with React [Hooks](#hooks) and you want a solution that's simple and extendable.
+
+This Gatsby Theme gives you all of that and more! Take full advantage of Firebase + Gatsby without the hassle of setting it up!
+
 ## What's in the box?
 
 - 🔥 Firebase configured and ready to go!
-- 💯 Easy to set up authentication + social logins.
-- 🔋 Batteries included: [`useAuth`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/hooks/useAuth.ts), [`<Form />`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/Form.tsx), [`<FormState />`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/FormState.tsx), & [`<SocialLogins />`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/SocialLogins.tsx).
+- 💯 Easy to set up authentication + social logins with [`<Form />`](#just-want-the-login-form), [`<FormState />`](#just-want-the-login-form), & [`<SocialLogins />`](#just-want-the-social-login-buttons).
+- 🎣 Hooks: [`useAuth`](#useauth), [`useFirestoreDoc`](#usefirestoredoc), [`useFirestoreQuery`](#usefirestorequery).
 - 🔐 [`/login`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/pages/login.tsx) page automatically set up. Configurable via [`loginPath`](#theme-options).
-- 🎨 Fully customizable & extendable.
+- 🎨 Fully customizable & extendable with `theme-ui`.
+- 🏷 Written in TypeScript.
 
 **[DEMO](https://gatsby-theme-firebase.netlify.com/)**
 
@@ -82,7 +89,7 @@ const CustomLogin = () => (
 );
 ```
 
-To see an example, check out the login modal demo: [`demo/src/components/LoginModal.tsx`](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/components/LoginModal.tsx) | [demo site](https://gatsby-theme-firebase.netlify.com/)
+To see an example, check out the login modal: [demo site](https://gatsby-theme-firebase.netlify.com/) | [`demo/src/components/LoginModal.tsx`](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/components/LoginModal.tsx)
 
 ## Just want the social login buttons?
 
@@ -102,7 +109,104 @@ import { SocialLogins } from "gatsby-theme-firebase";
 
 **[View demo page](https://gatsby-theme-firebase.netlify.com/social-logins)**.
 
-## Available Scripts
+## Hooks
+
+### useAuth
+
+```js
+const { isLoading, isLoggedIn, profile } = useAuth();
+```
+
+**Example:**
+
+```jsx
+import { auth, useAuth } from "gatsby-theme-firebase";
+
+export default () => {
+  const { isLoading, isLoggedIn, profile } = useAuth();
+  return (
+    <div>
+      {isLoading && <p>Loading..</p>}
+      {profile && <p>Hello {profile.displayName}</p>}
+      {isLoggedIn && <button onClick={() => auth.signOut()}>Sign Out</button>}
+    </div>
+  );
+};
+```
+
+source: [`gatsby-theme-firebase/src/hooks/useAuth.ts`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/hooks/useAuth.ts)
+
+### useFirestoreDoc
+
+```js
+const [data, isLoading, error] = useFirestoreDoc(docRef);
+```
+
+**Example:**
+
+```jsx
+import { firestore, useFirestoreDoc } from "gatsby-theme-firebase";
+
+export default () => {
+  const [data, isLoading] = useFirestoreDoc(
+    firestore.collection("tasks").doc("abc"),
+  );
+  return (
+    <div>
+      {isLoading && <p>Loading..</p>}
+      {data && <div>{data.task}</div>}
+    </div>
+  );
+};
+```
+
+source: [`gatsby-theme-firebase/src/hooks/useFirestoreDoc.ts`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/hooks/useFirestoreDoc.ts)
+
+### useFirestoreQuery
+
+```js
+const [data, isLoading, error] = useFirestoreQuery(query);
+```
+
+**Example:**
+
+```jsx
+import { firestore, useFirestoreQuery } from "gatsby-theme-firebase";
+
+export default () => {
+  const [tasks, isLoading] = useFirestoreQuery(
+    firestore.collection("tasks").orderBy("priority", "asc"),
+  );
+  return (
+    <div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <ol>
+          {tasks.map(task => task && <li key={task._id}>{task.task}</li>)}
+        </ol>
+      )}
+    </div>
+  );
+};
+```
+
+source: [`gatsby-theme-firebase/src/hooks/useFirestoreQuery.ts`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/hooks/useFirestoreQuery.ts)
+
+## Demos
+
+- **Login Page:** [Demo](https://gatsby-theme-firebase.netlify.com/login) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/pages/login.tsx)
+- **Login Modal:** [Demo](https://gatsby-theme-firebase.netlify.com/) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/components/LoginModal.tsx)
+- **Social Logins:** [Demo](https://gatsby-theme-firebase.netlify.com/social-logins) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/social-logins.tsx)
+- **Firestore Hooks:** [Demo](https://gatsby-theme-firebase.netlify.com/firestore) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/firestore.tsx)
+
+## Dev
+
+### Set up env variables
+
+Go to the demo application directory, copy the `.env.example` -> `.env.development`. Fill in the required environment variables before starting up the client dev server.
+
+### Available Scripts
 
 #### `$ yarn dev`
 
@@ -116,6 +220,10 @@ This will build the demo app for production.
 
 Outputs to the `demo/public` folder.
 
-## Related
+## Credits
 
+- [react-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks) - A set of reusable React Hooks for Firebase. (Recommended if you need more advanced hooks 👍)
+- [react-gatsby-firebase-authentication](https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication) - Starter boilerplate for authentication with Firebase.
+- [gatsby-starter-firebase](https://github.com/muhajirdev/gatsby-starter-firebase) - Gatsby starter with Firebase.
+- [gatsby-plugin-firebase](https://github.com/alexluong/gatsby-plugin-firebase) - Provides drop-in support for Firebase.
 - [gatsby-theme-auth0](https://github.com/epilande/gatsby-theme-auth0) - Gatsby theme for adding Auth0.
