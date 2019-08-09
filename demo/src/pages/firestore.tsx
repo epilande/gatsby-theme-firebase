@@ -15,6 +15,7 @@ interface Task {
   _id: string;
   priority: string;
   task: string;
+  completed?: boolean;
 }
 
 const FirestoreDemo = () => {
@@ -55,9 +56,16 @@ const [tasks, isLoading] = useFirestoreQuery(
   {isLoading ? (
     <p>Loading...</p>
   ) : (
-    <ol>
-      {tasks.map(task => task && <li key={task._id}>{task.task}</li>)}
-    </ol>
+    <ul>
+      {tasks.map(
+        task => (
+          <li key={task._id}>
+            <input type="checkbox" checked={task.completed} />
+            {task.task}
+          </li>
+        ),
+      )}
+    </ul>
   )}
 <div>
 `}
@@ -68,15 +76,25 @@ const [tasks, isLoading] = useFirestoreQuery(
         sx={{
           bg: "muted",
           p: 2,
-          pl: 4,
+          pl: 2,
         }}
       >
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <ol>
-            {tasks.map(task => task && <li key={task._id}>{task.task}</li>)}
-          </ol>
+          <ul sx={{ listStyle: "none" }}>
+            {tasks.map(task => (
+              <li key={task._id}>
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  sx={{ m: "0.25rem 0.5rem" }}
+                  disabled
+                />
+                {task.task}
+              </li>
+            ))}
+          </ul>
         )}
       </div>
 

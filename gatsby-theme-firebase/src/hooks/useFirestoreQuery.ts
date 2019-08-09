@@ -3,23 +3,20 @@ import { firestore } from "firebase";
 
 const useFirestoreQuery = <T extends firestore.DocumentData>(
   query: firestore.Query,
-): [(T | null)[], boolean, Error | null] => {
+): [T[], boolean, Error | null] => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [error, setError] = React.useState<Error | null>(null);
-  const [docs, setDocs] = React.useState<(T | null)[]>([]);
+  const [docs, setDocs] = React.useState<T[]>([]);
 
   React.useEffect(() => {
     const unsubscribe = query.onSnapshot(
       (querySnapshot: firestore.QuerySnapshot) => {
         setIsLoading(false);
         setDocs(
-          querySnapshot.docs.map(doc => {
-            if (!doc.exists) return null;
-            return {
-              _id: doc.id,
-              ...(doc.data() as T),
-            };
-          }),
+          querySnapshot.docs.map(doc => ({
+            _id: doc.id,
+            ...(doc.data() as T),
+          })),
         );
       },
       (err: Error) => {
