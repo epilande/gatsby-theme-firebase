@@ -10,12 +10,12 @@ if (!firebase.apps.length) {
 }
 
 let auth: firebase.auth.Auth;
-let firestore: firebase.firestore.Firestore;
 
 if (isBrowser) {
   auth = firebase.auth();
-  firestore = firebase.firestore();
 }
+
+const firestore = firebase.firestore();
 
 export { auth, firestore };
 export default firebase;
