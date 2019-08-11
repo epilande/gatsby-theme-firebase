@@ -10,8 +10,8 @@ import Button from "./Button";
 import SocialLogins from "./SocialLogins";
 
 const LoginForm: React.FunctionComponent<{
-  onSuccess?: () => void;
-}> = ({ onSuccess = () => {}, ...restProps }) => {
+  onLoginSuccess?: (user?: firebase.auth.UserCredential) => void;
+}> = ({ onLoginSuccess = () => {}, ...restProps }) => {
   const { socialLogins } = useFirebaseConfig();
   const { setFormType, setErrorMessage } = FormState.useContainer();
   const [email, setEmail] = React.useState("");
@@ -23,8 +23,8 @@ const LoginForm: React.FunctionComponent<{
       onSubmit={async event => {
         event.preventDefault();
         try {
-          await auth.signInWithEmailAndPassword(email, password);
-          onSuccess();
+          const user = await auth.signInWithEmailAndPassword(email, password);
+          onLoginSuccess(user);
         } catch (error) {
           setErrorMessage(error.message);
         }
@@ -32,7 +32,7 @@ const LoginForm: React.FunctionComponent<{
     >
       {socialLogins.length > 0 && (
         <div>
-          <SocialLogins onSuccess={onSuccess} />
+          <SocialLogins onLoginSuccess={onLoginSuccess} />
           <Styled.hr sx={{ my: 3 }} />
         </div>
       )}

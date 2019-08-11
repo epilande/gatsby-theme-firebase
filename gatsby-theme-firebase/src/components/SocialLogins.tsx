@@ -14,9 +14,9 @@ import GoogleIcon from "./icons/Google";
 import TwitterIcon from "./icons/Twitter";
 
 const SocialLogins: React.FunctionComponent<{
-  onSuccess?: () => void;
+  onLoginSuccess?: (user?: firebase.auth.UserCredential) => void;
   onError?: (err: any) => void;
-}> = ({ onSuccess = () => {}, onError = () => {}, ...restProps }) => {
+}> = ({ onLoginSuccess = () => {}, onError = () => {}, ...restProps }) => {
   const { socialLogins } = useFirebaseConfig();
   const enableGoogle = socialLogins.includes("google");
   const enableTwitter = socialLogins.includes("twitter");
@@ -37,8 +37,8 @@ const SocialLogins: React.FunctionComponent<{
         <SocialLoginButton
           onClick={async () => {
             try {
-              await auth.signInWithPopup(googleProvider());
-              onSuccess();
+              const user = await auth.signInWithPopup(googleProvider());
+              onLoginSuccess(user);
             } catch (err) {
               console.error("Authentication Error: ", err);
               onError(err);
@@ -52,8 +52,8 @@ const SocialLogins: React.FunctionComponent<{
         <SocialLoginButton
           onClick={async () => {
             try {
-              await auth.signInWithPopup(twitterProvider());
-              onSuccess();
+              const user = await auth.signInWithPopup(twitterProvider());
+              onLoginSuccess(user);
             } catch (err) {
               console.error("Authentication Error: ", err);
               onError(err);
@@ -67,8 +67,8 @@ const SocialLogins: React.FunctionComponent<{
         <SocialLoginButton
           onClick={async () => {
             try {
-              await auth.signInWithPopup(githubProvider());
-              onSuccess();
+              const user = await auth.signInWithPopup(githubProvider());
+              onLoginSuccess(user);
             } catch (err) {
               console.error("Authentication Error: ", err);
               onError(err);

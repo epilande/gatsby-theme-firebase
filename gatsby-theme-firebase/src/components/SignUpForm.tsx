@@ -8,8 +8,8 @@ import Input from "./Input";
 import Button from "./Button";
 
 const SignUpForm: React.FunctionComponent<{
-  onSuccess?: () => void;
-}> = ({ onSuccess = () => {}, ...restProps }) => {
+  onSignUpSuccess?: (user?: firebase.User | null) => void;
+}> = ({ onSignUpSuccess = () => {}, ...restProps }) => {
   const { setErrorMessage } = FormState.useContainer();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -29,7 +29,7 @@ const SignUpForm: React.FunctionComponent<{
             await user.updateProfile({ displayName: name });
             await user.sendEmailVerification();
           }
-          onSuccess();
+          onSignUpSuccess(user);
         } catch (error) {
           setErrorMessage(error.message);
         }

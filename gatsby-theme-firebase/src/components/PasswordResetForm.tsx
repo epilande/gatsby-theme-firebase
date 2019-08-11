@@ -8,8 +8,8 @@ import Input from "./Input";
 import Button from "./Button";
 
 const PasswordResetForm: React.FunctionComponent<{
-  onSuccess?: () => void;
-}> = ({ onSuccess = () => {}, ...restProps }) => {
+  onResetSuccess?: () => void;
+}> = ({ onResetSuccess = () => {}, ...restProps }) => {
   const { setErrorMessage } = FormState.useContainer();
   const [email, setEmail] = React.useState("");
 
@@ -20,7 +20,7 @@ const PasswordResetForm: React.FunctionComponent<{
         event.preventDefault();
         try {
           await auth.sendPasswordResetEmail(email);
-          onSuccess();
+          onResetSuccess();
         } catch (error) {
           setErrorMessage(error.message);
         }
