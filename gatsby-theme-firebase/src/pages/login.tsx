@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx, ThemeProvider, Layout } from "theme-ui";
 import { Global } from "@emotion/core";
-import { navigate } from "gatsby";
 import useFirebaseConfig from "../hooks/useFirebaseConfig";
+import handleLoginSuccess from "../firebase/auth/handleLoginSuccess";
+import handleSignUpSuccess from "../firebase/auth/handleSignUpSuccess";
+import handleResetSuccess from "../firebase/auth/handleResetSuccess";
 import FormState from "../containers/FormState";
 import Form from "../components/Form";
 import theme from "../gatsby-plugin-theme-ui";
@@ -24,8 +26,14 @@ const LoginPage = () => {
       <FormState.Provider>
         <Layout>
           <Form
-            onSuccess={() => {
-              navigate(loginRedirectPath);
+            onLoginSuccess={user => {
+              handleLoginSuccess({ user, loginRedirectPath });
+            }}
+            onSignUpSuccess={user => {
+              handleSignUpSuccess({ user, loginRedirectPath });
+            }}
+            onResetSuccess={() => {
+              handleResetSuccess({ loginRedirectPath });
             }}
           />
         </Layout>

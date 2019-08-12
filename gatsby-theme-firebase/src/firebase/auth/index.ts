@@ -1,4 +1,4 @@
-import firebase from "./index";
+import firebase from "../index";
 
 export const githubProvider = () => {
   return new firebase.auth.GithubAuthProvider();
