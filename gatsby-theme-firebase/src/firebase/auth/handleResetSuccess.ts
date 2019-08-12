@@ -1,5 +1,9 @@
-import { navigate } from "gatsby";
+import { FormStateType } from "../../containers/FormState";
 
-export default ({ loginRedirectPath }: { loginRedirectPath: string }) => {
-  navigate(loginRedirectPath);
+export interface ResetSuccessArgs extends FormStateType {
+  loginRedirectPath: string;
+}
+
+export default ({ setFormType }: ResetSuccessArgs) => {
+  setFormType("login");
 };

@@ -9,8 +9,25 @@ import FormState from "../containers/FormState";
 import Form from "../components/Form";
 import theme from "../gatsby-plugin-theme-ui";
 
-const LoginPage = () => {
+const FormWithHandlers = () => {
   const { loginRedirectPath } = useFirebaseConfig();
+  const formState = FormState.useContainer();
+  return (
+    <Form
+      onLoginSuccess={user => {
+        handleLoginSuccess({ ...formState, user, loginRedirectPath });
+      }}
+      onSignUpSuccess={user => {
+        handleSignUpSuccess({ ...formState, user, loginRedirectPath });
+      }}
+      onResetSuccess={() => {
+        handleResetSuccess({ ...formState, loginRedirectPath });
+      }}
+    />
+  );
+};
+
+const LoginPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Global
@@ -25,17 +42,7 @@ const LoginPage = () => {
       />
       <FormState.Provider>
         <Layout>
-          <Form
-            onLoginSuccess={user => {
-              handleLoginSuccess({ user, loginRedirectPath });
-            }}
-            onSignUpSuccess={user => {
-              handleSignUpSuccess({ user, loginRedirectPath });
-            }}
-            onResetSuccess={() => {
-              handleResetSuccess({ loginRedirectPath });
-            }}
-          />
+          <FormWithHandlers />
         </Layout>
       </FormState.Provider>
     </ThemeProvider>

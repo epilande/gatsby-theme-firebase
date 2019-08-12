@@ -23,6 +23,8 @@ function useForm(state = initialState) {
   };
 }
 
+export type FormStateType = ReturnType<typeof useForm>;
+
 const FormState = createContainer(useForm);
 
 export default FormState;
