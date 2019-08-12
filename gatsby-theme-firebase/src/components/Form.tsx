@@ -10,18 +10,13 @@ import PasswordResetForm from "./PasswordResetForm";
 import Nav from "./Nav";
 import ErrorMessage from "./ErrorMessage";
 
-export const Forms = {
-  login: LoginForm,
-  signup: SignUpForm,
-  passwordReset: PasswordResetForm,
-};
-
 const Form: React.FunctionComponent<{
-  onSuccess?: () => void;
-}> = ({ onSuccess }) => {
+  onSignUpSuccess?: (user?: firebase.User | null) => void;
+  onLoginSuccess?: (user?: firebase.auth.UserCredential) => void;
+  onResetSuccess?: () => void;
+}> = ({ onLoginSuccess, onSignUpSuccess, onResetSuccess }) => {
   const siteMetadata = useSiteMetadata();
   const { formType, errorMessage } = FormState.useContainer();
-  const FormPresenter = Forms[formType];
 
   return (
     <div
@@ -37,7 +32,11 @@ const Form: React.FunctionComponent<{
       </Header>
       <Nav />
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      <FormPresenter onSuccess={onSuccess} />
+      {formType === "login" && <LoginForm onSuccess={onLoginSuccess} />}
+      {formType === "signup" && <SignUpForm onSuccess={onSignUpSuccess} />}
+      {formType === "passwordReset" && (
+        <PasswordResetForm onSuccess={onResetSuccess} />
+      )}
     </div>
   );
 };

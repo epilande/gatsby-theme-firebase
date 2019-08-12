@@ -1,8 +1,7 @@
 import * as React from "react";
 import { createContainer } from "unstated-next";
-import { Forms } from "../components/Form";
 
-type FormType = keyof typeof Forms;
+type FormType = "login" | "signup" | "passwordReset";
 
 const initialState = {
   formType: "login" as FormType,
@@ -23,6 +22,8 @@ function useForm(state = initialState) {
     setErrorMessage,
   };
 }
+
+export type FormStateType = ReturnType<typeof useForm>;
 
 const FormState = createContainer(useForm);
 

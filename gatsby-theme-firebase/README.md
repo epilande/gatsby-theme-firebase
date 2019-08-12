@@ -101,13 +101,13 @@ No problem! Use the `<SocialLogins />` component:
 import { SocialLogins } from "gatsby-theme-firebase";
 
 <SocialLogins
-  onSuccess={() => {
-    navigate("/");
+  onSuccess={user => {
+    doSomethingWith(user);
   }}
 />;
 ```
 
-**[View demo page](https://gatsby-theme-firebase.netlify.com/social-logins)**.
+To see an example, check out social logins: [demo site](https://gatsby-theme-firebase.netlify.com/social-logins) | [`demo/src/pages/social-logins.tsx`](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/social-logins.tsx)
 
 ## Hooks
 
@@ -206,6 +206,14 @@ source: [`gatsby-theme-firebase/src/hooks/useFirestoreQuery.ts`](https://github.
 
 Go to the demo application directory, copy the `.env.example` -> `.env.development`. Fill in the required environment variables before starting up the client dev server.
 
+### Quick start
+
+This project uses `yarn workspaces`. Once you've set up the env variables, you can run the following to start the dev server.
+
+```sh
+$ yarn && yarn dev
+```
+
 ### Available Scripts
 
 #### `$ yarn dev`
@@ -222,7 +230,7 @@ Outputs to the `demo/public` folder.
 
 ## Credits
 
-- [react-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks) - A set of reusable React Hooks for Firebase. (Recommended if you need more advanced hooks 👍)
+- [react-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks) - Reusable React Hooks for Firebase. (Recommended if you need more advanced hooks 👍)
 - [react-gatsby-firebase-authentication](https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication) - Starter boilerplate for authentication with Firebase.
 - [gatsby-starter-firebase](https://github.com/muhajirdev/gatsby-starter-firebase) - Gatsby starter with Firebase.
 - [gatsby-plugin-firebase](https://github.com/alexluong/gatsby-plugin-firebase) - Provides drop-in support for Firebase.
