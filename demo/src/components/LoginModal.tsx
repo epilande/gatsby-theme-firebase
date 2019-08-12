@@ -33,7 +33,15 @@ const LoginModal: React.FunctionComponent<{
     >
       <FormState.Provider>
         <Form
-          onSuccess={() => {
+          onSignUpSuccess={user => {
+            console.log("LoginModal user: ", user);
+            setToggleLogin(false);
+          }}
+          onLoginSuccess={user => {
+            console.log("LoginModal user: ", user);
+            setToggleLogin(false);
+          }}
+          onResetSuccess={() => {
             setToggleLogin(false);
           }}
         />

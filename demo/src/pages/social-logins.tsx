@@ -36,8 +36,8 @@ const SocialLoginsPage = () => {
 ...
 
 <SocialLogins
-  onSuccess={() => {
-    navigate("/");
+  onSuccess={(user) => {
+    doSomethingWith(user)
   }}
 />
 `}
@@ -47,7 +47,8 @@ const SocialLoginsPage = () => {
 
       <div sx={{ maxWidth: "20rem", mb: 3 }}>
         <SocialLogins
-          onSuccess={() => {
+          onSuccess={user => {
+            console.log("SocialLogins user: ", user);
             navigate("/");
           }}
         />
