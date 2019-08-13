@@ -4,7 +4,6 @@ import { auth } from "../firebase";
 
 const useAuth = () => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [profile, setProfile] = React.useState<firebase.User | null>(null);
 
   React.useEffect(() => {
@@ -12,10 +11,8 @@ const useAuth = () => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setProfile(user);
-        setIsLoggedIn(true);
       } else {
         setProfile(null);
-        setIsLoggedIn(false);
       }
 
       setIsLoading(false);
@@ -29,7 +26,7 @@ const useAuth = () => {
 
   return {
     isLoading,
-    isLoggedIn,
+    isLoggedIn: !!profile,
     profile,
   };
 };
