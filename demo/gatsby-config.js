@@ -8,6 +8,7 @@ require("dotenv").config({
 
 module.exports = {
   plugins: [
+    "gatsby-theme-gallery",
     {
       resolve: "gatsby-theme-firebase",
       options: {
