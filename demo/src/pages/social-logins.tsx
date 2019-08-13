@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import { Link, navigate } from "gatsby";
 import { useAuth, SocialLogins } from "gatsby-theme-firebase";
 import Button from "gatsby-theme-firebase/src/components/Button";
-import { Code, CodeBlock, Header } from "../components/Styles";
+import { A, Code, CodeBlock, Header } from "../components/Styles";
 import { Layout } from "../components";
 
 const SocialLoginsPage = () => {
@@ -18,11 +18,20 @@ const SocialLoginsPage = () => {
       <Header title="Social Login" isLoggedIn={isLoggedIn} />
 
       <p sx={{ mt: 3, mb: 2 }}>
-        Only want the social login buttons and don{"'"}t need the login form?
+        Only want the social login buttons and don{"'"}t need the full login
+        form?
       </p>
 
       <p sx={{ mb: 2 }}>
-        Use the <Code>{`<SocialLogins />`}</Code> component:
+        Use the{" "}
+        <A
+          href="https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/components/SocialLogins.tsx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Code>{`<SocialLogins />`}</Code>
+        </A>{" "}
+        component:
       </p>
 
       <CodeBlock

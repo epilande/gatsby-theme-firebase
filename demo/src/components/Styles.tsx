@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import * as React from "react";
 import { auth } from "gatsby-theme-firebase";
 import GithubIcon from "gatsby-theme-firebase/src/components/icons/GitHub";
@@ -96,3 +96,5 @@ export const Header: React.FunctionComponent<{
     </div>
   </div>
 );
+
+export const A = ({ ...props }) => <Styled.a {...props} />;

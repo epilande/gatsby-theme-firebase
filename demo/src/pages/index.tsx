@@ -61,6 +61,16 @@ const HomePage = () => {
         </Link>
 
         <Link
+          to="/protected"
+          sx={{
+            mr: 3,
+            mb: 3,
+          }}
+        >
+          <Button>Protected Route</Button>
+        </Link>
+
+        <Link
           to="/firestore"
           sx={{
             mb: 3,

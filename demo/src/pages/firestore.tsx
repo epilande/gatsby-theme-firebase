@@ -9,7 +9,7 @@ import {
 } from "gatsby-theme-firebase";
 import Button from "gatsby-theme-firebase/src/components/Button";
 import { Layout } from "../components";
-import { Code, CodeBlock, Header } from "../components/Styles";
+import { A, Code, CodeBlock, Header } from "../components/Styles";
 
 interface Task {
   _id: string;
@@ -29,10 +29,24 @@ const FirestoreDemo = () => {
 
   return (
     <Layout>
-      <Header title="Firestore hooks" isLoggedIn={isLoggedIn} />
+      <Header title="Firestore Hooks" isLoggedIn={isLoggedIn} />
       <p sx={{ mt: 3, mb: 2 }}>
-        <strong>Available hooks:</strong>
-        <Code>{`useFirestoreDoc`}</Code> and <Code>{`useFirestoreQuery`}</Code>
+        <strong>Available hooks:</strong>{" "}
+        <A
+          href="https://github.com/epilande/gatsby-theme-firebase#usefirestoredoc"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Code>{`useFirestoreDoc`}</Code>
+        </A>{" "}
+        and{" "}
+        <A
+          href="https://github.com/epilande/gatsby-theme-firebase#usefirestorequery"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Code>{`useFirestoreQuery`}</Code>
+        </A>
       </p>
       <h2>Usage</h2>
       <CodeBlock
