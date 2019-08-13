@@ -23,6 +23,7 @@ This Gatsby Theme gives you all of that and more! Take full advantage of Firebas
 - 💯 Easy to set up authentication + social logins with [`<Form />`](#just-want-the-login-form), [`<FormState />`](#just-want-the-login-form), & [`<SocialLogins />`](#just-want-the-social-login-buttons).
 - 🎣 Hooks: [`useAuth`](#useauth), [`useFirestoreDoc`](#usefirestoredoc), [`useFirestoreQuery`](#usefirestorequery).
 - 🔐 [`/login`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/pages/login.tsx) page automatically set up. Configurable via [`loginPath`](#theme-options).
+- ⛅ Shadowable login event handlers. [docs](#shadowing) | [demo](https://github.com/epilande/gatsby-theme-firebase/tree/master/demo/src/gatsby-theme-firebase/firebase/auth) | [source](https://github.com/epilande/gatsby-theme-firebase/tree/master/gatsby-theme-firebase/src/firebase/auth).
 - 🎨 Fully customizable & extendable with `theme-ui`.
 - 🏷 Written in TypeScript.
 
@@ -83,7 +84,19 @@ const CustomLogin = () => (
   <Layout>
     <h1>Custom Login</h1>
     <FormState.Provider>
-      <Form />
+      <Form
+        onLoginSuccess={user => {
+          navigate("/profile");
+        }}
+        onSignUpSuccess={user => {
+          saveUserToDatabase(user).then(() => {
+            navigate("/welcome");
+          });
+        }}
+        onResetSuccess={() => {
+          setMessage("Email sent!");
+        }}
+      />
     </FormState.Provider>
   </Layout>
 );
@@ -192,6 +205,41 @@ export default () => {
 ```
 
 source: [`gatsby-theme-firebase/src/hooks/useFirestoreQuery.ts`](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/hooks/useFirestoreQuery.ts)
+
+## Shadowing
+
+Gatsby Themes has a concept called [**Shadowing**](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/), which allow users to override a file in a gatsby theme.
+
+To start shadowing, create a folder with the theme name `gatsby-theme-firebase` in your project's `src` directory.
+
+Now you're able to override any file in the [theme](https://github.com/epilande/gatsby-theme-firebase/tree/master/gatsby-theme-firebase/src).
+
+For example, if you want to override the `handleSignUpSuccess` function, create a file:
+
+```
+src/gatsby-theme-firebase/firebase/auth/handleSignUpSuccess.js
+```
+
+Then do whatever you want in that file (i.e. save the user to the database).
+Just make sure the return type is the same as the original, which in this case is a `function`.
+
+```js
+// Shadowing handleSignUpSuccess.js
+import { navigate } from "gatsby";
+
+export default async ({ user, loginRedirectPath, setErrorMessage }) => {
+  try {
+    await saveUserToDatabase(user);
+    navigate(loginRedirectPath);
+  } catch (error) {
+    setErrorMessage(error.message);
+  }
+};
+```
+
+Now the `login` page will pick up the shadowed file and use that handler instead of the default one.
+
+Here's a demo of `handleLoginSuccess` being shadowed: [`demo/src/gatsby-theme-firebase/firebase/auth/handleLoginSuccess.js`](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/gatsby-theme-firebase/firebase/auth/handleLoginSuccess.ts)
 
 ## Demos
 
