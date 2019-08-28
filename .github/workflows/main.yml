@@ -15,3 +15,5 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    - name: ESLint checks
+      uses: gimenete/eslint-action@1.0
