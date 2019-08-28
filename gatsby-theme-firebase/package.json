@@ -8,12 +8,12 @@
   "peerDependencies": {
     "gatsby": "^2.13.25",
     "react": "^16.9.0",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "gatsby": "^2.13.25",
     "react": "^16.9.0",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.9.0"
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
