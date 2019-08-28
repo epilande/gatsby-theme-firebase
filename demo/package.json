@@ -18,7 +18,7 @@
     "gatsby-plugin-typescript": "^2.1.5",
     "gatsby-theme-firebase": "*",
     "gatsby-theme-gallery": "^1.0.1",
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-dom": "^16.8.6"
   },
   "author": "Emmanuel Pilande",
