@@ -6,12 +6,12 @@
   "types": "index.d.ts",
   "scripts": {},
   "peerDependencies": {
-    "gatsby": "^2.13.25",
+    "gatsby": "^2.14.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "gatsby": "^2.13.25",
+    "gatsby": "^2.14.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
