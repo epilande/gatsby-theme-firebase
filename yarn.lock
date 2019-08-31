@@ -5699,15 +5699,10 @@ gatsby-plugin-sharp@^2.2.9:
     sharp "^0.22.1"
     svgo "^1.2.0"
 
-gatsby-plugin-theme-ui@^0.2.23:
-  version "0.2.33"
-  resolved "https://npm.webmocha.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.33.tgz#655dc5630aaa026ac06c7eaba26099e9cd41ddf9"
-  integrity sha512-X1xjej0lp1AFeL5nAZOYz45NqZ85ofx5Eg1V7Vb/S7yB4WTjv3JCKcxIbaQgCewqA9swujpdxMG0bPQ62Xr29g==
-
-gatsby-plugin-theme-ui@^0.2.29:
-  version "0.2.29"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.29.tgz#667b9cee8fd500e856ff7082cd8da4cdbd30c153"
-  integrity sha512-1u0EKSImOPXEAwBS94x47oD/NVYRDNsXU+0LJxghpY3wgi7DgpnEnXj+21OlhdPacPekmb8Dl4vABRp3p0lI8A==
+gatsby-plugin-theme-ui@^0.2.23, gatsby-plugin-theme-ui@^0.2.38:
+  version "0.2.38"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.38.tgz#519afdd63ffe4cf3824f1150a933f2ff57b549b3"
+  integrity sha512-4HUf5EoYQAuxrSyLRVyrYNzqOVnj4hNuPorQk55l8kvTR1MdL3URaoQmsES895cb6+mNOb4/ODb66tFCOdwjwQ==
 
 gatsby-plugin-typescript@^2.1.2, gatsby-plugin-typescript@^2.1.5:
   version "2.1.5"
