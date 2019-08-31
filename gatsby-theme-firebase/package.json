@@ -22,7 +22,7 @@
     "gatsby-plugin-emotion": "^4.1.4",
     "gatsby-plugin-theme-ui": "^0.2.29",
     "gatsby-plugin-typescript": "^2.1.5",
-    "theme-ui": "^0.2.29",
+    "theme-ui": "^0.2.38",
     "unstated-next": "^1.1.0"
   },
   "author": "Emmanuel Pilande",
