@@ -1651,10 +1651,10 @@
   dependencies:
     csstype "^2.6.5"
 
-"@types/theme-ui@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@types/theme-ui/-/theme-ui-0.2.0.tgz#6ac815ce8974b5650d04e104affc16fc73b54ed7"
-  integrity sha512-ir3sCWszCnlwj1hRk7oREYGeLvASa6XffMsKg9AVCxxiu0Hngg9jUYQF5PPAsi56v9KGdSm1NFTj+Plx2ZfFHg==
+"@types/theme-ui@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@types/theme-ui/-/theme-ui-0.2.2.tgz#06c8e51bf231ce643f7ce859d6309d104e18a4d9"
+  integrity sha512-c6kGvo8GeLGw92nbH3jGCzJHmJQ838fwo4Pst7WoYkUwOar2fIDCW70DRdW+mFXrvA1l1jPUY0bwYwwjXFjhZA==
   dependencies:
     "@types/react" "*"
     "@types/styled-system" "*"
