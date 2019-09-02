@@ -1385,15 +1385,10 @@
   dependencies:
     core-js "^2.5.7"
 
-"@mdx-js/react@^1.1.1":
-  version "1.2.2"
-  resolved "https://npm.webmocha.com/@mdx-js%2freact/-/react-1.2.2.tgz#563ad016e3b49a7478c9848e39c66637443dca1c"
-  integrity sha512-vmbZ8AttReR6krZjHBYsF+pN9Cikd/QpBUeP14inqwBKMXHYdOEdYzfm5uer3tkl3iwhxKWAVLxHTh8fwICEZw==
-
-"@mdx-js/react@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.1.5.tgz#5e257debcdd0a60da992699385edef0abb891cb7"
-  integrity sha512-c+tfNfvsInS5PRjTMGqxI+LyLrlxKyX/TNqeNG1DLKGjjf9cFlDshu7tnqZZhGa/VBu0c/XXkK8ZkXjpmfhweQ==
+"@mdx-js/react@^1.1.1", "@mdx-js/react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.4.0.tgz#b389684b4b5fbfb6770a6cc0d620fca82b8a8549"
+  integrity sha512-UHPG74qvLM8wO+evIKzNQqSw3PzgPei4oEFPuFGee15rK0cYNDKL+utzQLM1Ngv2gmjU/WN9BYrpJxyFh8xOCg==
 
 "@mikaelkristiansson/domready@^1.0.9":
   version "1.0.9"
