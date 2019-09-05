@@ -16,7 +16,7 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.16",
+    "@emotion/core": "^10.0.17",
     "@mdx-js/react": "^1.4.0",
     "firebase": "^6.5.0",
     "gatsby-plugin-emotion": "^4.1.5",
