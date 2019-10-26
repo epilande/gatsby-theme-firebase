@@ -246,6 +246,7 @@ Here's a demo of `handleLoginSuccess` being shadowed: [`demo/src/gatsby-theme-fi
 - **Login Page:** [Demo](https://gatsby-theme-firebase.netlify.com/login) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/gatsby-theme-firebase/src/pages/login.tsx)
 - **Login Modal:** [Demo](https://gatsby-theme-firebase.netlify.com/) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/components/LoginModal.tsx)
 - **Social Logins:** [Demo](https://gatsby-theme-firebase.netlify.com/social-logins) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/social-logins.tsx)
+- **Protected Route:** [Demo](https://gatsby-theme-firebase.netlify.com/protected) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/protected.tsx)
 - **Firestore Hooks:** [Demo](https://gatsby-theme-firebase.netlify.com/firestore) | [Code](https://github.com/epilande/gatsby-theme-firebase/blob/master/demo/src/pages/firestore.tsx)
 
 ## Dev
