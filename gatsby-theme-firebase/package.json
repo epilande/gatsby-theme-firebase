@@ -18,7 +18,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@mdx-js/react": "^1.4.0",
-    "firebase": "^6.6.0",
+    "firebase": "^7.3.0",
     "gatsby-plugin-emotion": "^4.1.5",
     "gatsby-plugin-theme-ui": "^0.2.38",
     "gatsby-plugin-typescript": "^2.1.8",
