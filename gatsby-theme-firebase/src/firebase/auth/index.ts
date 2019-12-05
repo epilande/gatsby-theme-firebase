@@ -11,3 +11,7 @@ export const googleProvider = () => {
 export const twitterProvider = () => {
   return new firebase.auth.TwitterAuthProvider();
 };
+
+export const facebookProvider = () => {
+  return new firebase.auth.FacebookAuthProvider();
+};
