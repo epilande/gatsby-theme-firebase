@@ -22,7 +22,7 @@ module.exports = {
           appId: process.env.FIREBASE_APP_ID,
         },
         loginPath: "/login",
-        socialLogins: ["google", "github"],
+        socialLogins: ["google", "github", "facebook"],
       },
     },
     "gatsby-plugin-typescript",
