@@ -23,6 +23,7 @@ const SocialLogins: React.FunctionComponent<{
   const enableGoogle = socialLogins.includes("google");
   const enableTwitter = socialLogins.includes("twitter");
   const enableGitHub = socialLogins.includes("github");
+  const enableFacebook = socialLogins.includes("facebook");
 
   return (
     <div
@@ -79,7 +80,7 @@ const SocialLogins: React.FunctionComponent<{
         >
           <FacebookIcon sx={{ mr: 1 }} size={18} /> Sign in with Facebook
         </SocialLoginButton>
-      )}      
+      )}
       {enableGitHub && (
         <SocialLoginButton
           onClick={async () => {
