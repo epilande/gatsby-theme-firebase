@@ -55,7 +55,7 @@ module.exports = {
         },
         loginPath: "/login",
         loginRedirectPath: "/dashboard",
-        socialLogins: ["google", "twitter", "github"],
+        socialLogins: ["google", "twitter", "facebook", "github"],
       },
     },
   ],
@@ -64,12 +64,12 @@ module.exports = {
 
 ## Theme options
 
-| Key                 | Default     | Required | Description                                                                    |
-| ------------------- | ----------- | -------- | ------------------------------------------------------------------------------ |
-| `credentials`       | `undefined` | `true`   | Configure Firebase credentials.                                                |
-| `loginPath`         | `undefined` | `false`  | Set login page path. If `undefined`, no login page will be created.            |
-| `loginRedirectPath` | `/`         | `false`  | On successful login, redirect to this path.                                    |
-| `socialLogins`      | `[]`        | `false`  | Enable social logins in the login form. e.g. `['google', 'twitter', 'github']` |
+| Key                 | Default     | Required | Description                                                                                |
+| ------------------- | ----------- | -------- | ------------------------------------------------------------------------------------------ |
+| `credentials`       | `undefined` | `true`   | Configure Firebase credentials.                                                            |
+| `loginPath`         | `undefined` | `false`  | Set login page path. If `undefined`, no login page will be created.                        |
+| `loginRedirectPath` | `/`         | `false`  | On successful login, redirect to this path.                                                |
+| `socialLogins`      | `[]`        | `false`  | Enable social logins in the login form. e.g. `['google', 'twitter', 'facebook', 'github']` |
 
 ## Just want the login form?
 
