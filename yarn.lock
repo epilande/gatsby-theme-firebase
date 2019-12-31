@@ -1798,10 +1798,10 @@
   dependencies:
     csstype "^2.6.5"
 
-"@types/theme-ui@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@types/theme-ui/-/theme-ui-0.2.2.tgz#06c8e51bf231ce643f7ce859d6309d104e18a4d9"
-  integrity sha512-c6kGvo8GeLGw92nbH3jGCzJHmJQ838fwo4Pst7WoYkUwOar2fIDCW70DRdW+mFXrvA1l1jPUY0bwYwwjXFjhZA==
+"@types/theme-ui@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@types/theme-ui/-/theme-ui-0.2.6.tgz#d8e14f6a05ceab0c23c822cf5893a51377f2091c"
+  integrity sha512-QnyTHTIJxCIVOs2g7IAdE20CpwNoaiCXFSJidy09RDq4MUjCH+kjvLbmMigUnq/E9UnjETAoUarqMJe0LAtzlg==
   dependencies:
     "@types/react" "*"
     "@types/styled-system" "*"
