@@ -932,19 +932,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.3.tgz#a166882c81c0c6040975dd30df24fae8549bd96f"
   integrity sha512-14ZVlsB9akwvydAdaEnVnvqu6J2P6ySv39hYyl/aoB6w/V+bXX0tay8cF6paqbgZsN2n5Xh15uF4pE+GvE+itw==
 
-"@emotion/is-prop-valid@0.8.5":
+"@emotion/is-prop-valid@0.8.5", "@emotion/is-prop-valid@^0.8.1":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.5.tgz#2dda0791f0eafa12b7a0a5b39858405cc7bde983"
   integrity sha512-6ZODuZSFofbxSbcxwsFz+6ioPjb0ISJRRPLZ+WIbjcU2IMU0Io+RGQjjaTgOvNQl007KICBm7zXQaYQEC1r6Bg==
   dependencies:
     "@emotion/memoize" "0.7.3"
-
-"@emotion/is-prop-valid@^0.8.1":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.2.tgz#b9692080da79041683021fcc32f96b40c54c59dc"
-  integrity sha512-ZQIMAA2kLUWiUeMZNJDTeCwYRx1l8SQL0kHktze4COT22occKpDML1GDUXP5/sxhOMrZO8vZw773ni4H5Snrsg==
-  dependencies:
-    "@emotion/memoize" "0.7.2"
 
 "@emotion/memoize@0.7.2":
   version "0.7.2"
@@ -12119,10 +12112,10 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-theme-ui@^0.2.23, theme-ui@^0.2.49:
-  version "0.2.49"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.49.tgz#3803952907e74e6835d40b063aed0d46c213e2d9"
-  integrity sha512-hgULYonGu8iY3delv/GrMx4L/3nAJyEu55gEAAK3GDKVEVf4VNng3lM9/tgx4kUizTFVEB5MN5y+1JTHHOQLXQ==
+theme-ui@^0.2.23, theme-ui@^0.2.52:
+  version "0.2.52"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.52.tgz#c041a32b0b257fc8ecbae273e14e92abd48c0f2d"
+  integrity sha512-JFujorP5aFxIm1UyVCtefN5baXjwh5TXHKFYNWgAP+3rqVvggIr46uSMrRNvDjyhFOQiMK8YI8ctPQrrhcETpw==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.16"
