@@ -16,7 +16,7 @@
     "@types/react-dom": "^16.9.4",
     "@types/theme-ui": "^0.2.6",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
-    "@typescript-eslint/parser": "^2.9.0",
+    "@typescript-eslint/parser": "^2.16.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
