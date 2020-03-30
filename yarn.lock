@@ -1510,10 +1510,10 @@
   dependencies:
     core-js "^2.5.7"
 
-"@mdx-js/react@^1.1.1", "@mdx-js/react@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.4.0.tgz#b389684b4b5fbfb6770a6cc0d620fca82b8a8549"
-  integrity sha512-UHPG74qvLM8wO+evIKzNQqSw3PzgPei4oEFPuFGee15rK0cYNDKL+utzQLM1Ngv2gmjU/WN9BYrpJxyFh8xOCg==
+"@mdx-js/react@^1.1.1", "@mdx-js/react@^1.5.8":
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.5.8.tgz#fc38fe0eb278ae24666b2df3c751e726e33f5fac"
+  integrity sha512-L3rehITVxqDHOPJFGBSHKt3Mv/p3MENYlGIwLNYU89/iVqTLMD/vz8hL9RQtKqRoMbKuWpzzLlKIObqJzthNYg==
 
 "@mikaelkristiansson/domready@^1.0.9":
   version "1.0.9"
