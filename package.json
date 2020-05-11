@@ -11,11 +11,11 @@
     "lint": "eslint --ext .tsx,.ts gatsby-theme-firebase demo"
   },
   "devDependencies": {
-    "@types/node": "^12.12.12",
+    "@types/node": "^13.1.1",
     "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "@types/theme-ui": "^0.2.2",
-    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@types/react-dom": "^16.9.4",
+    "@types/theme-ui": "^0.2.6",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.9.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
@@ -30,7 +30,7 @@
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.1",
     "rimraf": "^3.0.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.4"
   },
   "author": "Emmanuel Pilande",
   "license": "MIT",
