@@ -19,6 +19,7 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, themeOptions) => {
       storageBucket,
       messagingSenderId,
       appId,
+      measurementId,
     },
   } = themeOptions;
 
@@ -35,6 +36,7 @@ exports.onCreateWebpackConfig = ({ plugins, actions }, themeOptions) => {
           FIREBASE_STORAGE_BUCKET: JSON.stringify(storageBucket),
           FIREBASE_MESSAGING_SENDER_ID: JSON.stringify(messagingSenderId),
           FIREBASE_APP_ID: JSON.stringify(appId),
+          FIREBASE_MEASUREMENT_ID: JSON.stringify(measurementId)
         },
       }),
     ],
