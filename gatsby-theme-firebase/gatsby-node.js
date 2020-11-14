@@ -48,7 +48,7 @@ exports.createPages = ({ actions }, themeOptions) => {
   if (loginPath) {
     createPage({
       path: loginPath,
-      component: path.resolve(`${__dirname}/src/pages/login.tsx`),
+      component: path.resolve(`${__dirname}/src/templates/login.tsx`),
     });
   }
 };
